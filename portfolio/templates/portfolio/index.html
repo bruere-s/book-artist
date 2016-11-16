@@ -18,32 +18,26 @@
       <script src="{% static 'js/header.js' %}"></script>
     </head>
     <body>
-      <div class="row" style="background-image: url('{% static 'img/bg.jpg' %}'); background-position: 50% 50%; background-size: cover; height: 100vh; margin: 0; max-width: 100%">
+      <div class="row" style="background-image: url('{% static 'img/bg.jpg' %}'); background-position: 50% 50%; background-size: cover; min-height: 100vh; margin: 0; max-width: 100%">
         <div class="row" id="header" style="background: rgba(0, 0, 0, 0.8); margin: 0; margin-top: 5vh; min-height: 10vh; position: relative">
           <div class="small-2 columns show-for-small-only block-d-menu">
             <button id="button-d-menu"><img id="img-d-menu" src="{% static 'img/img-dropdown-menu.png' %}"  style="max-width: 8vh;"></button>
-            <div id="d-menu" style="display: none; position: absolute;">
-              <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">HOME</span></a></p>
-              <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">ABOUT ME</span></a></p>
-              <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">GALLERY</span></a></p>
-              <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">CONTACT</span></a></p>
-            </div>
           </div>
           <div class="small-offset-3 small-2 medium-1 medium-offset-0 large-offset-1 large-2 columns">
             <img src="{% static 'img/logo.png' %}" style="max-width: 8vh; padding-top: 1vh">
           </div> 
           <div class="hide-for-small-only medium-9 large-6 columns">
             <div id="container-block-header">
-              <a href="#"><div id="block-header-home" class="block-header border-bottom">
+              <a href="{% url 'home' %}"><div id="block-header-home" class="block-header border-bottom">
                 <p class="text-header" style="color: #FFFFFF; font-family: 'Oswald'"><span id="link-home" class="titre-header">HOME</span></p>
               </div></a>
-              <a href="#"><div id="block-header-about" class="block-header">
+              <a href="{% url 'about' %}"><div id="block-header-about" class="block-header">
                 <p class="text-header" style="color: #FFFFFF; font-family: 'Oswald'"><span id="link-about" class="titre-header">ABOUT ME</span></p>
               </div></a>
-              <a href="#"><div id="block-header-gallery" class="block-header">
+              <a href="{% url 'gallery' %}"><div id="block-header-gallery" class="block-header">
                 <p class="text-header" style="color: #FFFFFF; font-family: 'Oswald'"><span id="link-gallery" class="titre-header">GALLERY</span></p>
               </div></a>
-              <a href="#"><div id="block-header-contact" class="block-header">
+              <a href="{% url 'contact' %}"><div id="block-header-contact" class="block-header">
                 <p class="text-header" style="color: #FFFFFF; font-family: 'Oswald'"><span id="link-contact" class="titre-header">CONTACT</span></p>
               </div>
             </div></a>
@@ -53,25 +47,16 @@
             <a href="#" target="_blank"><img src="{% static 'img/insta.png' %}" style="max-width: 4vh; padding-top: 3vh; display: inline-block;"></a>
           </div>
         </div>
-
-        <div class="large-8 columns small-centered">
-          <div id="panel-home">
-            <p>HOME</p>
-          </div>
-          <div id="panel-about" style="display: none">
-            <p>ABOUT</p>
-          </div>
-          <div id="panel-gallery" style="display: none">
-            {% for paint in paint %}
-            {{ paint.paint.url }}
-            <img src="{{ paint.paint.url }}"/>
-            {% endfor %}
-
-          </div>
-          <div id="panel-contact" style="display: none">
-            <p>CONTACT</p>
-          </div>
+        <div id="d-menu" style="display: none; position: absolute;">
+          <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">HOME</span></a></p>
+          <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">ABOUT ME</span></a></p>
+          <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">GALLERY</span></a></p>
+          <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">CONTACT</span></a></p>
         </div>
+        {% block content %}
+        {% endblock %}
+
+
       </div>
     </body>
     </html>
