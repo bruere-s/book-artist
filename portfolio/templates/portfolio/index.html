@@ -48,10 +48,10 @@
           </div>
         </div>
         <div id="d-menu" style="display: none; position: absolute;">
-          <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">HOME</span></a></p>
-          <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">ABOUT ME</span></a></p>
-          <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">GALLERY</span></a></p>
-          <p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">CONTACT</span></a></p>
+          <a href="{% url 'home' %}"><p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">HOME</span></a></p>
+          <a href="{% url 'about' %}"><p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">ABOUT ME</span></a></p>
+          <a href="{% url 'gallery' %}"><p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">GALLERY</span></a></p>
+          <a href="{% url 'contact' %}"><p class="text-header-d" style="color: #FFFFFF; font-family: 'Oswald'"><a href="#"><span class="titre-header">CONTACT</span></a></p>
         </div>
         {% block content %}
         {% endblock %}
