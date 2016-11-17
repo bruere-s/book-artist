@@ -1,21 +1,33 @@
-  var url = new URL(window.location.href);
-  var page = url.pathname.substring(1, url.pathname.length - 1);
+var url = new URL(window.location.href);
+var page = url.pathname.substring(1, url.pathname.length - 1);
 
-  $(document).ready(function() {
+$(document).ready(function() {
 
-    $("#button-d-menu").click(function() {
-      $("#d-menu").slideToggle( "fast", function() {
-      });
-      $("#header").mouseleave(function() {
-        ("#d-menu").slideToggle( "fast", function() {
-        });
-      });
-    });
+  highlightHeader();
+});
 
+
+function     highlightHeader() {
+  $('.block-header').each( function() {
+    if (page == '/')
+      page = 'home';
+    var str = "block-header-";
+    var header = str.concat(page);
+    if (header.localeCompare($(this).attr('id')) == 0)
+      $(this).addClass('border-bottom');
+    else 
+      $(this).removeClass('border-bottom');
   });
+}
 
-
-
+$("#button-d-menu").click(function() {
+  $("#d-menu").slideToggle( "fast", function() {
+  });
+  $("#header").mouseleave(function() {
+    ("#d-menu").slideToggle( "fast", function() {
+    });
+  });
+});
 
 
 
