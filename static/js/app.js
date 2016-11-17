@@ -2,12 +2,20 @@ var url = new URL(window.location.href);
 var page = url.pathname.substring(1, url.pathname.length - 1);
 
 $(document).ready(function() {
-
   highlightHeader();
 });
 
 
 function     highlightHeader() {
+  $("#button-d-menu").click(function() {
+    $("#d-menu").slideToggle( "fast", function() {
+    });
+    $("#header").mouseleave(function() {
+      ("#d-menu").slideToggle( "fast", function() {
+      });
+    });
+  });
+  
   $('.block-header').each( function() {
     if (page == '/')
       page = 'home';
@@ -19,15 +27,6 @@ function     highlightHeader() {
       $(this).removeClass('border-bottom');
   });
 }
-
-$("#button-d-menu").click(function() {
-  $("#d-menu").slideToggle( "fast", function() {
-  });
-  $("#header").mouseleave(function() {
-    ("#d-menu").slideToggle( "fast", function() {
-    });
-  });
-});
 
 
 

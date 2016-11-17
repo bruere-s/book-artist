@@ -7,6 +7,15 @@ $(document).ready(function() {
 
 
 function     highlightHeader() {
+  $("#button-d-menu").click(function() {
+    $("#d-menu").slideToggle( "fast", function() {
+    });
+    $("#header").mouseleave(function() {
+      ("#d-menu").slideToggle( "fast", function() {
+      });
+    });
+  });
+  
   $('.block-header').each( function() {
     if (page == '/')
       page = 'home';
@@ -18,15 +27,6 @@ function     highlightHeader() {
       $(this).removeClass('border-bottom');
   });
 }
-
-$("#button-d-menu").click(function() {
-  $("#d-menu").slideToggle( "fast", function() {
-  });
-  $("#header").mouseleave(function() {
-    ("#d-menu").slideToggle( "fast", function() {
-    });
-  });
-});
 
 
 
